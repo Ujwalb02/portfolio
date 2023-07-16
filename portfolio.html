@@ -9,6 +9,15 @@
       src="https://kit.fontawesome.com/3056e9eccd.js"
       crossorigin="anonymous"
     ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("Hi8zZ-oaKN7DvWX66");
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,22 +54,35 @@
         <span>B</span>
       </div>
       <div class="navig">
-        <a href="#sec2" class="navigcon activecolor">HOME</a>
-        <a href="#sec3" class="navigcon inactivecolor">ABOUT</a>
-        <a href="#sec4" class="navigcon inactivecolor">SERVICES</a>
-        <a href="#sec5" class="navigcon inactivecolor">RESUME</a>
-        <a href="#" class="navigcon inactivecolor">PORTFOLIO</a>
-        <a href="#sectioncon" class="navigcon inactivecolor">CONTACT</a>
+        <a href="#sec2" id="home_nav" class="navigcon activecolor">HOME</a>
+        <a href="#sec3" id="about_nav" class="about_nave navigcon inactivecolor"
+          >ABOUT</a
+        >
+        <a href="#sec4" id="service_nav" class="navigcon inactivecolor"
+          >SERVICES</a
+        >
+        <a href="#sec5" id="resume_nav" class="navigcon inactivecolor"
+          >RESUME</a
+        >
+        <a href="#" id="portfolio_nav" class="navigcon inactivecolor"
+          >PORTFOLIO</a
+        >
+        <a href="#sectioncon" id="contact_nav" class="navigcon inactivecolor"
+          >CONTACT</a
+        >
       </div>
       <div class="medias">
         <span>
-          <i class="fa-brands fa-square-instagram"></i>
+          <a
+            href="https://www.linkedin.com/in/ujwal-b-705145231"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
         </span>
         <span>
-          <i class="fa-brands fa-linkedin-in"></i>
-        </span>
-        <span>
-          <i class="fa-brands fa-twitter"></i>
+          <a href="https://github.com/Ujwalb02" target="_blank"
+            ><i class="fa-brands fa-square-github"></i
+          ></a>
         </span>
         <div class="navigbar">
           <i class="fa-solid fa-bars"></i>
@@ -75,8 +97,8 @@
           <div></div>
         </div>
         <div class="btn1">
-          <button>VIEW MY WORKS</button>
-          <button>CONTACT ME</button>
+          <a href="#">VIEW MY WORKS</a>
+          <a href="#sectioncon">CONTACT ME</a>
         </div>
       </div>
       <div class="right">
@@ -109,7 +131,7 @@
           </div>
           <div>Age :<span>20</span></div>
           <div>From :<span>Chikkaballapur,Karnataka</span></div>
-          <button>Download CV</button>
+          <a href="Ujwal Resume.pdf" download="UB Resume">Download CV</a>
         </div>
       </div>
     </section>
@@ -121,9 +143,7 @@
         <div class="service_main_div">
           <div class="service_sub_div">
             <div class="internal_service_div">
-              <div class="hexagon hex1">
-                <i class="fa-sharp fa-solid fa-laptop-mobile"></i>
-              </div>
+              <div class="hexagon hex1"></div>
               <h1>FAST</h1>
               <p>To develop a fast load and lag free interaction</p>
             </div>
@@ -211,6 +231,13 @@
             <div class="learnt_per javascript_per">70%</div>
           </div>
           <div class="skills_div">
+            <div class="language">React</div>
+            <div class="learn">
+              <div class="cover_div cover_div_python"></div>
+            </div>
+            <div class="learnt_per">90%</div>
+          </div>
+          <div class="skills_div">
             <div class="language">Python</div>
             <div class="learn">
               <div class="cover_div cover_div_python"></div>
@@ -249,32 +276,41 @@
         <h2 id="h21">Send me a Note</h2>
       </div>
       <form class="cform" action="#">
-        <input type="text" placeholder="Name" />
-        <input type="text" placeholder="Enter Email" />
+        <input type="text" placeholder="Name" class="contact_name" />
+        <input type="email" placeholder="Enter Email" class="contact_email" />
         <textarea
+          class="contact_text"
           name="Message"
           id="text"
           cols="30"
           rows="10"
           placeholder="Your Message"
         ></textarea>
-        <button id="btnsub">SUBMIT</button>
+        <button id="btnsub" type="submit">SUBMIT</button>
       </form>
       <div id="links">
         <div class="fallow">
           <h2>FOLLOW ME</h2>
           <div>
             <div id="linkedin" class="links">
-              <i class="fa-brands fa-linkedin-in"></i>
+              <a
+                href="https://www.linkedin.com/in/ujwal-b-705145231"
+                target="_blank"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
             </div>
             <div class="links">
-              <i class="fa-brands fa-hackerrank"></i>
+              <a
+                href="https://www.hackerrank.com/ujwalbyrareddy02?hr_r=1"
+                target="_blank"
+                ><i class="fa-brands fa-hackerrank"></i>
+              </a>
             </div>
             <div class="links">
-              <i class="fa-brands fa-square-github"></i>
-            </div>
-            <div class="links">
-              <i class="fa-brands fa-instagram"></i>
+              <a href="https://github.com/Ujwalb02" target="_blank"
+                ><i class="fa-brands fa-square-github"></i
+              ></a>
             </div>
           </div>
         </div>

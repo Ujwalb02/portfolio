@@ -11,6 +11,7 @@ body {
 }
 .sticky {
   position: fixed;
+  opacity: 1;
   top: 10px;
   left: 0;
 }
@@ -24,6 +25,8 @@ body {
   background-color: #17252a;
   color: #feffff;
   width: 100%;
+  transition: opacity;
+  transition-duration: 1s;
 }
 .section1 div {
   display: inline-block;
@@ -184,15 +187,26 @@ body {
   justify-content: center;
   align-items: center;
 }
-.btn1 button {
+
+.btn1 a {
   color: #17252a;
   padding: 13px 30px;
-
+  text-decoration: none;
   /* margin-right:40px; */
   font-size: 1em;
   font-weight: 700;
-  background-color: transparent;
+  background-color: #2b7a78;
   border: none;
+  transition: all;
+  transition-duration: 0.5s;
+  margin: 0 5px;
+}
+.btn1 a {
+  border-radius: 20px;
+}
+.btn1 a:hover {
+  background-color: #17252a;
+  color: white;
 }
 button:nth-child(1) {
   border-radius: 20px;
@@ -436,6 +450,7 @@ button:nth-child(1) {
 .cform {
   text-align: center;
   margin: auto;
+
   margin-top: 50px;
   /* animation-name:visible_box; */
   animation-delay: 1s;
@@ -453,6 +468,7 @@ button:nth-child(1) {
 }
 .cform input,
 .cform textarea {
+  color: white;
   border-radius: 5px;
   box-sizing: border-box;
   padding-left: 20px;
@@ -596,7 +612,7 @@ button:nth-child(1) {
 .address div {
   margin: 10px;
 }
-.fa-solid,
+
 .fa-envelope,
 .fa-phone {
   color: rgb(122, 228, 230);
@@ -711,12 +727,12 @@ button:nth-child(1) {
   font-weight: 400;
   padding: 0px 5px;
 }
-.my_info button {
+.my_info a {
   border: none;
   font-size: 1em;
   display: inline-block;
   margin: auto;
-
+  text-decoration: none;
   background-color: rgb(38, 171, 164);
   margin-top: 30px;
   color: white;
@@ -1076,6 +1092,12 @@ button:nth-child(1) {
   );
   transition: 1s;
   transform: rotateY(360deg);
+}
+.fa-laptop-mobile {
+  font-size: 2rem;
+}
+.hexagon i {
+  position: absolute;
 }
 .hex1,
 .hex2,

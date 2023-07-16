@@ -27,6 +27,22 @@ degree = document.querySelector(".degree");
 edu_circle1 = document.querySelector(".circle1");
 edu_circle2 = document.querySelector(".circle2");
 edu_circle3 = document.querySelector(".circle3");
+navigation_links = document.querySelectorAll(".navigcon");
+
+const navigatingonclick = () => {
+  if (window.innerWidth < 1000) {
+    navigation.style.display = "none";
+  }
+};
+for (element of navigation_links) {
+  element.addEventListener("click", navigatingonclick);
+}
+nav_section1 = document.querySelector("#home_nav");
+nav_section3 = document.querySelector("#about_nav");
+nav_section4 = document.querySelector("#service_nav");
+nav_section5 = document.querySelector("#resume_nav");
+nav_section6 = document.querySelector("#contact_nav");
+
 section1 = document.querySelector(".section1");
 section2 = document.querySelector(".section2");
 section3 = document.querySelector(".section3");
@@ -38,6 +54,15 @@ hexagon1 = document.querySelector(".hex1");
 hexagon2 = document.querySelector(".hex2");
 hexagon3 = document.querySelector(".hex3");
 hexagon4 = document.querySelector(".hex4");
+const sections_heights = [
+  { section: section1, section_nav: nav_section1 },
+  { section: section2, section_nav: nav_section1 },
+  { section: section3, section_nav: nav_section3 },
+  { section: section4, section_nav: nav_section4 },
+  { section: section5, section_nav: nav_section5 },
+  { section: section6, section_nav: nav_section6 },
+];
+
 hexagon_array = [hexagon1, hexagon2, hexagon3, hexagon4];
 document.addEventListener("DOMContentLoaded", (e) => {
   console.log(e);
@@ -59,6 +84,16 @@ function color_fill() {
     element.classList.add("add_animation");
   });
 }
+
+function alter_active() {
+  active_nav_con.classList.add("inactivecolor");
+  active_nav_con.classList.remove("activecolor");
+}
+function alter_target(target) {
+  target.classList.add("activecolor");
+  target.classList.remove("inactivecolor");
+}
+
 const obscallback = function (entries) {
   const entry = entries[0];
   if (entry.isIntersecting == false) {
@@ -115,6 +150,13 @@ window.addEventListener("scroll", () => {
     contact_header.style.animationName = "move_con";
     contact_form.style.animationName = "visible_box";
   }
+  sections_heights.map((element) => {
+    if (element.section.offsetTop - window.scrollY < 250) {
+      alter_active();
+      alter_target(element.section_nav);
+      active_nav_con = element.section_nav;
+    }
+  });
 });
 dancebar = () => {
   type_div.classList.add("opadance");
@@ -158,25 +200,6 @@ display = () => {
   }
 };
 display();
-
-function alter_active() {
-  active_nav_con.classList.add("inactivecolor");
-  active_nav_con.classList.remove("activecolor");
-}
-function alter_target(target) {
-  target.classList.add("activecolor");
-  target.classList.remove("inactivecolor");
-}
-navigation.addEventListener("click", function (e) {
-  if (e.target.classList.contains("navigcon")) {
-    alter_active();
-    alter_target(e.target);
-    active_nav_con = e.target;
-    if (window.innerWidth < 999) {
-      navigation.style.display = "none";
-    }
-  }
-});
 
 let nav_active = false;
 navigation_bar.addEventListener("click", (e) => {
@@ -225,3 +248,33 @@ education_div.addEventListener("click", (e) => {
     education_circle[education_obj_count].classList.add("circle_activecolor");
   }
 });
+
+contactName = document.querySelector(".contact_name");
+contactEmail = document.querySelector(".contact_email");
+contactText = document.querySelector(".contact_text");
+contactForm = document.querySelector(".cform");
+
+const sendEmail = (e) => {
+  e.preventDefault();
+  var contactDetails = {
+    name: contactName.value,
+    email: contactEmail.value,
+    text: contactText.value,
+  };
+  const templetId = "template_2xf4h8c";
+  const serviceId = "service_dhpux6k";
+
+  emailjs
+    .send(serviceId, templetId, contactDetails)
+    .then((res) => {
+      contactName.value = "";
+      contactEmail.value = "";
+      contactText.value = "";
+      alert("Mail sent successfully");
+    })
+    .catch((err) => {
+      console.log("Failed to send the mail");
+    });
+};
+
+contactForm.addEventListener("submit", sendEmail);
